@@ -1,0 +1,154 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navigation {
+  background: linear-gradient(to bottom, #e84c4c, #e84c4c);
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo span {
+  font-size: 20px;
+  color: black;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 30px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-list li a:hover {
+  color: aliceblue;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 798px) {
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .nav-list.open {
+    display: flex;
+    transform: translate(-30px);
+    position: absolute;
+    top: 60px;
+  }
+
+  .nav-list li {
+    text-align: left;
+    width: 100%;
+    background: linear-gradient(to bottom, #e84c4c, #e84c4c);
+  }
+
+  .nav-list li a {
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid black;
+  }
+
+  .nav-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 400px;
+    margin-top: -30px;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .hamburger {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 93%;
+    transform: translate(50%, 50%);
+    transition: all 0.3s;
+  }
+
+  .hamburger::before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: -8px;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  .hamburger::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  .hamburger.active {
+    background-color: transparent;
+  }
+
+  .hamburger.active:before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .hamburger.active:after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}
